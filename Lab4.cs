@@ -1,3 +1,6 @@
+//#Add an additional condition in the player registration loop to check if the user enters a valid registration type:
+//#Modify the "calculate_price" function to return the total price instead of setting the "total_price" variable:
+
 using System;
 
 namespace MyApplication
@@ -19,36 +22,31 @@ namespace MyApplication
 
         public void calculate_price()
         {
-            if ((type.ToLower()) == "kids")
-            {
-                if ((jersey.ToLower()) == "yes")
-                {
-                    total_price = 150 + 100;
+            return 150 + 100;
 
-                }
-                else
-                {
-                    total_price = 150;
-
-                }
-
-
-            }
-            if ((type.ToLower()) == "adults")
-            {
-                if ((jersey.ToLower()) == "yes")
-                {
-                    total_price = 230 + 120;
-
-                }
-                else
-                {
-                    total_price = 230;
-
-                }
-
-            }
         }
+        else
+        {
+            return 150;
+
+        }
+    }
+    if ((type.ToLower()) == "adults")
+    {
+        if ((jersey.ToLower()) == "yes")
+        {
+            return 230 + 120;
+
+        }
+        else
+        {
+            return 230;
+
+        }
+
+    }
+    return 0;
+}
     }
     class Program
     { 
@@ -76,20 +74,10 @@ namespace MyApplication
             Console.WriteLine("--------------------------------------------------------------------------------------------\n\n");
             no_of_user = no_of_registration * no_of_player;
             Player[] p = new Player[no_of_user];
-            for(int i=0; i<no_of_user;i++)
-            {
-                Console.WriteLine("Enter player name:");
-                name = Console.ReadLine();
-                
-                Console.WriteLine("Registration type:");
-                type = Console.ReadLine();
-                Console.WriteLine("Enter yes/no to indicate whether you want a jersey:");
-                jersey = Console.ReadLine();
-                p[i] = new Player(name, type, jersey);
-                p[i].calculate_price();
-                Console.WriteLine("--------------------------------------------------------------------------------------------\n\n");
-
-
+            for (int i = 0; i < no_of_user; i++)
+{
+    Console.WriteLine("Enter player name:");
+    name = Console.ReadLine();
 
             }
             Console.WriteLine("                                                Summary of Registration\n\n");
